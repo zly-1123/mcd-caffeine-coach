@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""麦咖啡因管家（mcd-caffeine-coach）命令行入口。
+"""今天别喝多了 · 麦咖啡因管家（mcd-caffeine-coach）命令行入口。
 
 核心主张：麦当劳 MCP 给了你 160 条营养数据和实时菜单，但没有一个字提到咖啡因。
 本工具把麦咖啡与饮品线的每一杯翻译成「咖啡因当量 + 代谢时间线 + 今晚截止时刻」，
@@ -364,7 +364,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser(
         prog="coach",
-        description="\u9ea6\u5496\u5561\u56e0\u7ba1\u5bb6 \u2014\u2014 \u628a\u9ea6\u5f53\u52b3\u996e\u54c1\u7ffb\u8bd1\u6210\u5496\u5561\u56e0\u4e0e\u4ee3\u8c22\u65f6\u95f4\u7ebf",
+        description="\u4eca\u5929\u522b\u559d\u591a\u4e86 \u00b7 \u9ea6\u5496\u5561\u56e0\u7ba1\u5bb6 \u2014\u2014 \u628a\u9ea6\u5f53\u52b3\u996e\u54c1\u7ffb\u8bd1\u6210\u5496\u5561\u56e0\u4e0e\u4ee3\u8c22\u65f6\u95f4\u7ebf",
         parents=[common],
     )
     sub = parser.add_subparsers(dest="command", required=True)
