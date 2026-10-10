@@ -86,7 +86,10 @@ def fetch_menu_live(store_code: str) -> Dict[str, Any]:
     code = store_code or client.known_store_code()
     if not code:
         raise SystemExit("\u65e0\u6cd5\u786e\u5b9a\u95e8\u5e97\u7f16\u7801\uff1a\u8bf7\u7528 --store \u6307\u5b9a\uff0c\u6216\u786e\u4fdd\u8d26\u53f7\u6709\u5386\u53f2\u8ba2\u5355\u3002")
-    return client.menu(code)
+    result = client.menu(code)
+    # 联网返回的是 {success, code, message, data:{categories, meals}}，
+    # 而离线快照保存的是其中的 data 本身，两者需要归一化。
+    return result.get("data", result) or {}
 
 
 def iter_drinks(menu: Dict[str, Any], details: Optional[Dict[str, Any]] = None) -> Iterable[Dict[str, Any]]:
